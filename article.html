@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Artículo — Chatprofit</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- decoraciones globales -->
+  <div class="bg-blobs">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+
+  <!-- NAV (igual a base) -->
+  <header class="nav-wrap">
+    <div class="container nav">
+      <a class="brand" href="base.html"><span class="badge">✨</span> chatprofit <em>Pro max</em></a>
+      <nav class="links">
+        <a href="base.html#dolores">Problemas</a>
+        <a href="base.html#servicios">Servicios</a>
+        <a href="base.html#proceso">Proceso</a>
+        <a href="base.html#plataformas">Plataformas</a>
+        <a href="base.html#blog">Tips</a>
+        <a href="base.html#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-primary" href="base.html#contacto">Contacto</a>
+      <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile" id="mobileMenu">
+      <a href="base.html#dolores">Problemas</a>
+      <a href="base.html#servicios">Servicios</a>
+      <a href="base.html#proceso">Proceso</a>
+      <a href="base.html#plataformas">Plataformas</a>
+      <a href="base.html#blog">Tips</a>
+      <a href="base.html#faq">FAQ</a>
+      <a class="btn btn-primary" href="base.html#contacto">Contacto</a>
+    </div>
+  </header>
+
+  <!-- HERO del artículo -->
+  <section class="article-hero">
+    <div class="container">
+      <span class="chip tag" id="art-tag">Etiqueta</span>
+      <h1 id="art-title">Título del artículo</h1>
+      <p class="meta" id="art-meta">Publicado hoy • 4 min de lectura</p>
+    </div>
+  </section>
+
+  <!-- Cuerpo del artículo -->
+  <article class="article container">
+    <figure class="article-cover">
+      <img id="art-image" alt="Imagen del artículo" loading="lazy">
+    </figure>
+    <div class="prose" id="art-body">
+      <!-- contenido inyectado por JS -->
+    </div>
+
+    <div class="article-cta">
+      <a class="btn btn-primary btn-lg" href="base.html#contacto">Quiero potenciar mis chats</a>
+      <a class="btn btn-ghost btn-lg" href="base.html#blog">Volver a Tips</a>
+    </div>
+  </article>
+
+  <footer class="foot">
+    <div class="container foot-grid">
+      <div class="mini-brand"><span>✨</span> Chatprofit <em>Pro max</em></div>
+      <p>© 2025 varisbrothers enterprises</p>
+      <div class="dots" aria-hidden="true">• • •</div>
+    </div>
+  </footer>
+
+  <script>
+    // menú móvil
+    const btn = document.querySelector('.nav-toggle');
+    const mobile = document.getElementById('mobileMenu');
+    btn.addEventListener('click', ()=>{ btn.classList.toggle('open'); mobile.classList.toggle('open'); });
+
+    // util: obtener slug
+    const params = new URLSearchParams(location.search);
+    const slug = params.get('slug') || 'velocidad';
+
+    // base de artículos (editá/extendé libremente)
+    const ARTICLES = {       
+      velocidad: {
+        tag: 'Velocidad',
+        title: 'La clave para no perder fans: responder rápido y con empatía',
+        minutes: 4,
+        image: 'https://images.unsplash.com/photo-1496368077930-c1c1f3b1c2d3?q=80&w=1600&auto=format&fit=crop',
+        html: `
+          <p>La constancia y el tono adecuado sostienen la relación con tu comunidad. Sin eso, el interés cae.</p>
+          <h2>Por qué la velocidad importa</h2>
+          <p>Responder en minutos eleva la percepción de valor y evita que el fan se vaya a otra pestaña.</p>
+          <blockquote>“Rapidez + empatía = retención”.</blockquote>
+          <p>Automatizamos recordatorios, plantillas cálidas y priorización de bandeja para no perder oportunidades.</p>
+          <ul>
+            <li>Ventanas horarias con SLA claro</li>
+            <li>Macros con tono humano</li>
+            <li>Escalamiento para casos sensibles</li>
+          </ul>
+          <p>¿Querés delegar lo tedioso y enfocarte en crear? Nosotros nos ocupamos.</p>
+        `
+      },
+      privacidad: {
+        tag: 'Privacidad',
+        title: 'Privacidad total: cómo proteger tu identidad mientras creces',
+        minutes: 5,
+        image: 'https://images.unsplash.com/photo-1555421689-43cad7100751?q=80&w=1600&auto=format&fit=crop',
+        html: `
+          <p>Crecer sin exponerte es posible con protocolos y un equipo que cuida tus datos.</p>
+          <h2>Principios clave</h2>
+          <p>Accesos mínimos, verificación en dos pasos y flujos anónimos para pagos y chats.</p>
+          <p>El objetivo: tranquilidad para crear sin fricción.</p>
+        `
+      },
+      estrategia: {
+        tag: 'Estrategia',
+        title: 'De hobby a negocio: marketing que convierte para creadores',
+        minutes: 6,
+        image: 'https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1600&auto=format&fit=crop',
+        html: `
+          <p>Un plan claro transforma contenido en comunidad fiel y en mejores resultados.</p>
+          <h2>De contenido a conversión</h2>
+          <p>Calendario, propuestas de valor, CTAs y medición. Sin eso, es difícil escalar.</p>
+        `
+      },
+      conversion: {
+      tag: 'Conversión',
+      title: 'CTA que vende sin sonar a “venta”',
+      minutes: 3,
+      image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1600&auto=format&fit=crop',
+      html: `
+        <p>Un buen CTA no empuja: acompaña. El usuario ya está cerca; sólo necesita claridad y una razón concreta para avanzar.</p>
+        <h2>3 claves rápidas</h2>
+        <ul>
+          <li><strong>Micro-copies</strong> que resuelven objeciones (precio, riesgo, tiempo).</li>
+          <li><strong>Pruebas A/B</strong> simples: verbo, beneficio y fricción (pasos/campos).</li>
+          <li><strong>Urgencia saludable</strong>: cupos/bonus limitados, sin presionar.</li>
+        </ul>
+        <blockquote>“Beneficio explícito + siguiente paso obvio = clic.”</blockquote>
+        <p>Ejemplos: “Quiero mi auditoría gratis”, “Ver calendario y reservar”, “Probar 7 días sin tarjeta”.</p>
+        <h2>Checklist express</h2>
+        <ul>
+          <li>El CTA completa la frase: “Quiero…”</li>
+          <li>El beneficio es visible arriba del pliegue.</li>
+          <li>Una prueba social (caso o review) cerca del botón.</li>
+        </ul>
+        <p>Si querés, armamos 3 variantes y medimos en 7 días cuál convierte mejor.</p>
+      `
+    },
+
+    operacion: {
+      tag: 'Operación',
+      title: 'Cómo no perderte en los DMs: priorización simple',
+      minutes: 4,
+      image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1600&auto=format&fit=crop',
+      html: `
+        <p>Cuando todo suena urgente, nada lo es. Con una prioridad clara, respondés más y mejor.</p>
+        <h2>Score por intención (SIR)</h2>
+        <p>Etiquetá cada DM por <em>Señal</em> (compra/soporte/consulta), <em>Intención</em> (alta/media/baja) y <em>Recencia</em>.</p>
+        <ul>
+          <li><strong>Compra alta</strong>: responder primero (plantillas cálidas + enlace de pago).</li>
+          <li><strong>Soporte</strong>: respuestas breves con links útiles y cierre.</li>
+          <li><strong>Consulta</strong>: nurturar con 1 CTA suave (guía o demo).</li>
+        </ul>
+        <h2>Plantillas con tono humano</h2>
+        <p>Usá saludos breves, nombre propio y siguiente paso explícito. Evitá párrafos largos.</p>
+        <blockquote>“Menos pasos, más claridad.”</blockquote>
+        <p>Configuramos macros y recordatorios para que ningún hilo se caiga a los 2–3 días.</p>
+      `
+    }
+  };
+
+
+
+    // render
+    const art = ARTICLES[slug] || ARTICLES.velocidad;
+    document.getElementById('art-tag').textContent = art.tag;
+    document.getElementById('art-title').textContent = art.title;
+    document.getElementById('art-meta').textContent = `Publicado hoy • ${art.minutes} min de lectura`;
+    document.getElementById('art-image').src = art.image;
+    document.getElementById('art-body').innerHTML = art.html;
+
+
+
+
+    
+  </script>
+
+
+
+</body>
+</html>
