@@ -19,7 +19,7 @@
   <!-- NAV (igual a base) -->
   <header class="nav-wrap">
     <div class="container nav">
-      <a class="brand" href="base.html"><span class="badge">✨</span> chatprofit <em>Pro max</em></a>
+      <a class="brand" href="base.html"><span class="badge"><img src="/logo.jpeg" alt=""></span> chatprofit </a>
       <nav class="links">
         <a href="base.html#dolores">Problemas</a>
         <a href="base.html#servicios">Servicios</a>
@@ -47,7 +47,7 @@
     <div class="container">
       <span class="chip tag" id="art-tag">Etiqueta</span>
       <h1 id="art-title">Título del artículo</h1>
-      <p class="meta" id="art-meta">Publicado hoy • 4 min de lectura</p>
+      <p class="meta" id="art-meta"> 4 min de lectura</p>
     </div>
   </section>
 
@@ -68,8 +68,8 @@
 
   <footer class="foot">
     <div class="container foot-grid">
-      <div class="mini-brand"><span>✨</span> Chatprofit <em>Pro max</em></div>
-      <p>© 2025 varisbrothers enterprises</p>
+         <a class="brand" href="#"><span class="badge"> <img src="/logo.jpeg" alt=""></span> chatprofit <em></em></a>
+      <p>© 2025 ChatProfit. Todos los derechos reservados</p>
       <div class="dots" aria-hidden="true">• • •</div>
     </div>
   </footer>
@@ -84,104 +84,110 @@
     const params = new URLSearchParams(location.search);
     const slug = params.get('slug') || 'velocidad';
 
-    // base de artículos (editá/extendé libremente)
-    const ARTICLES = {       
-      velocidad: {
-        tag: 'Velocidad',
-        title: 'La clave para no perder fans: responder rápido y con empatía',
-        minutes: 4,
-        image: 'https://images.unsplash.com/photo-1496368077930-c1c1f3b1c2d3?q=80&w=1600&auto=format&fit=crop',
-        html: `
-          <p>La constancia y el tono adecuado sostienen la relación con tu comunidad. Sin eso, el interés cae.</p>
-          <h2>Por qué la velocidad importa</h2>
-          <p>Responder en minutos eleva la percepción de valor y evita que el fan se vaya a otra pestaña.</p>
-          <blockquote>“Rapidez + empatía = retención”.</blockquote>
-          <p>Automatizamos recordatorios, plantillas cálidas y priorización de bandeja para no perder oportunidades.</p>
-          <ul>
-            <li>Ventanas horarias con SLA claro</li>
-            <li>Macros con tono humano</li>
-            <li>Escalamiento para casos sensibles</li>
-          </ul>
-          <p>¿Querés delegar lo tedioso y enfocarte en crear? Nosotros nos ocupamos.</p>
-        `
-      },
-      privacidad: {
-        tag: 'Privacidad',
-        title: 'Privacidad total: cómo proteger tu identidad mientras creces',
-        minutes: 5,
-        image: 'https://images.unsplash.com/photo-1555421689-43cad7100751?q=80&w=1600&auto=format&fit=crop',
-        html: `
-          <p>Crecer sin exponerte es posible con protocolos y un equipo que cuida tus datos.</p>
-          <h2>Principios clave</h2>
-          <p>Accesos mínimos, verificación en dos pasos y flujos anónimos para pagos y chats.</p>
-          <p>El objetivo: tranquilidad para crear sin fricción.</p>
-        `
-      },
-      estrategia: {
-        tag: 'Estrategia',
-        title: 'De hobby a negocio: marketing que convierte para creadores',
-        minutes: 6,
-        image: 'https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1600&auto=format&fit=crop',
-        html: `
-          <p>Un plan claro transforma contenido en comunidad fiel y en mejores resultados.</p>
-          <h2>De contenido a conversión</h2>
-          <p>Calendario, propuestas de valor, CTAs y medición. Sin eso, es difícil escalar.</p>
-        `
-      },
-      conversion: {
-      tag: 'Conversión',
-      title: 'CTA que vende sin sonar a “venta”',
-      minutes: 3,
-      image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1600&auto=format&fit=crop',
-      html: `
-        <p>Un buen CTA no empuja: acompaña. El usuario ya está cerca; sólo necesita claridad y una razón concreta para avanzar.</p>
-        <h2>3 claves rápidas</h2>
-        <ul>
-          <li><strong>Micro-copies</strong> que resuelven objeciones (precio, riesgo, tiempo).</li>
-          <li><strong>Pruebas A/B</strong> simples: verbo, beneficio y fricción (pasos/campos).</li>
-          <li><strong>Urgencia saludable</strong>: cupos/bonus limitados, sin presionar.</li>
-        </ul>
-        <blockquote>“Beneficio explícito + siguiente paso obvio = clic.”</blockquote>
-        <p>Ejemplos: “Quiero mi auditoría gratis”, “Ver calendario y reservar”, “Probar 7 días sin tarjeta”.</p>
-        <h2>Checklist express</h2>
-        <ul>
-          <li>El CTA completa la frase: “Quiero…”</li>
-          <li>El beneficio es visible arriba del pliegue.</li>
-          <li>Una prueba social (caso o review) cerca del botón.</li>
-        </ul>
-        <p>Si querés, armamos 3 variantes y medimos en 7 días cuál convierte mejor.</p>
-      `
-    },
-
-    operacion: {
-      tag: 'Operación',
-      title: 'Cómo no perderte en los DMs: priorización simple',
-      minutes: 4,
-      image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1600&auto=format&fit=crop',
-      html: `
-        <p>Cuando todo suena urgente, nada lo es. Con una prioridad clara, respondés más y mejor.</p>
-        <h2>Score por intención (SIR)</h2>
-        <p>Etiquetá cada DM por <em>Señal</em> (compra/soporte/consulta), <em>Intención</em> (alta/media/baja) y <em>Recencia</em>.</p>
-        <ul>
-          <li><strong>Compra alta</strong>: responder primero (plantillas cálidas + enlace de pago).</li>
-          <li><strong>Soporte</strong>: respuestas breves con links útiles y cierre.</li>
-          <li><strong>Consulta</strong>: nurturar con 1 CTA suave (guía o demo).</li>
-        </ul>
-        <h2>Plantillas con tono humano</h2>
-        <p>Usá saludos breves, nombre propio y siguiente paso explícito. Evitá párrafos largos.</p>
-        <blockquote>“Menos pasos, más claridad.”</blockquote>
-        <p>Configuramos macros y recordatorios para que ningún hilo se caiga a los 2–3 días.</p>
-      `
-    }
-  };
-
-
+   // artículos desarrollados
+const ARTICLES = {       
+  velocidad: {
+    tag: 'Velocidad',
+    title: 'La clave para no perder fans: responder rápido y con empatía',
+    minutes: 4,
+    image: 'https://images.unsplash.com/photo-1525182008055-f88b95ff7980?q=80&w=1600&auto=format&fit=crop',
+    html: `
+      <p>En la era de la inmediatez, cada segundo cuenta. Una demora en la respuesta puede ser la diferencia entre fidelizar o perder a un seguidor.</p>
+      <h2>Por qué la velocidad importa</h2>
+      <p>Responder en minutos eleva la percepción de valor, transmite profesionalismo y evita que el fan se vaya a otra pestaña en busca de alguien más disponible.</p>
+      <blockquote>“Rapidez + empatía = retención”.</blockquote>
+      <p>Un chat center profesional automatiza recordatorios, usa plantillas cálidas y organiza la bandeja con criterios claros para no perder oportunidades.</p>
+      <ul>
+        <li>Ventanas horarias con SLA definido.</li>
+        <li>Macros con tono humano, no robótico.</li>
+        <li>Escalamiento inmediato en casos sensibles.</li>
+      </ul>
+      <p>Mientras vos creás contenido, nosotros cuidamos cada interacción. Delegá lo tedioso y enfocáte en crecer.</p>
+    `
+  },
+privacidad: {
+  tag: 'Privacidad',
+  title: 'Privacidad total: cómo proteger tu identidad mientras creces',
+  minutes: 5,
+  image: 'https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=1600&auto=format&fit=crop',
+  html: `
+    <p>El miedo a exponer datos personales es uno de los mayores frenos al crecer online. Pero existen protocolos para evitarlo sin dejar de monetizar.</p>
+    <h2>Principios clave de seguridad</h2>
+    <p>Accesos mínimos al equipo, verificación en dos pasos y flujos anónimos para pagos y chats: todo orientado a blindar tu identidad.</p>
+    <p>El objetivo es simple: que puedas producir y conectar con tu comunidad sin preocuparte por filtraciones ni riesgos.</p>
+    <blockquote>“La confianza se construye cuando la seguridad es invisible pero presente”.</blockquote>
+    <p>Con un chat center especializado, tu información está siempre bajo resguardo.</p>
+  `
+},
+  estrategia: {
+    tag: 'Estrategia',
+    title: 'De hobby a negocio: marketing que convierte para creadores',
+    minutes: 6,
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1600&auto=format&fit=crop',
+    html: `
+      <p>Muchos comienzan creando contenido como un pasatiempo. Pero cuando llega el momento de vivir de ello, la estrategia marca la diferencia.</p>
+      <h2>De contenido a conversión</h2>
+      <p>Un calendario editorial, propuestas de valor claras y llamadas a la acción son el puente entre un fan y un cliente.</p>
+      <p>Sin un plan de marketing, es difícil escalar: la visibilidad se dispersa y la comunidad pierde foco.</p>
+      <ul>
+        <li>Planificación de publicaciones y horarios óptimos.</li>
+        <li>Mensajes consistentes alineados con tu marca.</li>
+        <li>Medición constante para mejorar lo que funciona.</li>
+      </ul>
+      <p>Convertí lo que hacés por pasión en ingresos sostenibles. Nuestro equipo sabe cómo lograrlo.</p>
+    `
+  },
+  conversion: {
+    tag: 'Conversión',
+    title: 'CTA que vende sin sonar a “venta”',
+    minutes: 3,
+    image: 'https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=1600&auto=format&fit=crop',
+    html: `
+      <p>Un buen CTA (Call To Action) no empuja: acompaña. Es la chispa que transforma el interés en acción.</p>
+      <h2>3 claves rápidas</h2>
+      <ul>
+        <li><strong>Micro-copies</strong> que resuelven objeciones: precio, riesgo, tiempo.</li>
+        <li><strong>Pruebas A/B</strong> con cambios simples: verbo, beneficio, pasos.</li>
+        <li><strong>Urgencia saludable</strong>: cupos o bonus limitados sin sonar agresivo.</li>
+      </ul>
+      <blockquote>“Beneficio explícito + siguiente paso obvio = clic.”</blockquote>
+      <p>Ejemplos: “Quiero mi asesoría”, “Reservar cupo hoy”, “Probar gratis”.</p>
+      <h2>Checklist express</h2>
+      <ul>
+        <li>El CTA completa la frase: “Quiero…”</li>
+        <li>El beneficio es visible arriba del pliegue.</li>
+        <li>Una prueba social cerca del botón.</li>
+      </ul>
+      <p>Si querés, diseñamos variantes y medimos cuál te da más ingresos.</p>
+    `
+  },
+ operacion: {
+  tag: 'Operación',
+  title: 'Cómo no perderte en los DMs: priorización simple',
+  minutes: 4,
+  image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1600&auto=format&fit=crop',
+  html: `
+    <p>Los mensajes privados se multiplican y, sin un orden, es fácil que oportunidades de venta se pierdan.</p>
+    <h2>Score por intención (SIR)</h2>
+    <p>Clasificá cada mensaje por <em>Señal</em> (compra/soporte/consulta), <em>Intención</em> (alta/media/baja) y <em>Recencia</em>.</p>
+    <ul>
+      <li><strong>Compra alta</strong>: responder primero, con tono cálido y enlace directo.</li>
+      <li><strong>Soporte</strong>: respuestas breves y útiles.</li>
+      <li><strong>Consulta</strong>: nutrir con CTA suave (guía, demo, o promoción).</li>
+    </ul>
+    <h2>Plantillas con tono humano</h2>
+    <p>Los saludos breves, el nombre propio y un paso siguiente claro generan cercanía. Evitá textos largos e impersonales.</p>
+    <blockquote>“Menos pasos, más claridad.”</blockquote>
+    <p>Un chat center asegura que ningún DM se pierda y cada fan reciba la atención que merece.</p>
+  `
+}
+};
 
     // render
     const art = ARTICLES[slug] || ARTICLES.velocidad;
     document.getElementById('art-tag').textContent = art.tag;
     document.getElementById('art-title').textContent = art.title;
-    document.getElementById('art-meta').textContent = `Publicado hoy • ${art.minutes} min de lectura`;
+    document.getElementById('art-meta').textContent = ` ${art.minutes} min de lectura`;
     document.getElementById('art-image').src = art.image;
     document.getElementById('art-body').innerHTML = art.html;
 

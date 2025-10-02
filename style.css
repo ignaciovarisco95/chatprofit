@@ -53,8 +53,9 @@ p{color:var(--muted); margin:.4rem 0}
   display:flex; align-items:center; gap:1rem; padding:12px 0;
   min-height: var(--header-h); /* usado para calcular el alto de hero */
 }
+
 .brand{font-weight:900; letter-spacing:.3px; display:flex; align-items:center; gap:.5rem}
-.brand .badge{display:grid; place-items:center; width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,var(--brand),var(--brand2)); box-shadow:var(--shadow)}
+.brand .badge{display:grid; place-items:center; width:50px; height:50px; border-radius:8px; background:linear-gradient(135deg,var(--brand),var(--brand2)); box-shadow:var(--shadow)}
 .brand em{font-style:normal; color:var(--brand)}
 .links{display:none; gap:1rem; margin-left:auto}
 .links a{color:#d7dbef; padding:.45rem .7rem; border-radius:10px}
